@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Activity, TrendingUp, ArrowUpRight, ArrowDownRight, Clock, Hash, Users, Zap } from 'lucide-react'
+import { Activity, TrendingUp, ArrowUpRight, ArrowDownRight, Clock, DollarSign, Users, Zap, Scale, Search } from 'lucide-react'
 
 export default function ActivityPage() {
   const [filter, setFilter] = useState('all')
@@ -79,20 +79,20 @@ export default function ActivityPage() {
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-5xl font-light mb-4">
-            <span className="blue-gradient">Network</span> Activity
+            <span className="blue-gradient">Economic</span> Activity
           </h1>
           <p className="text-gray-400 text-lg">
-            Real-time Bitcoin blockchain activity and transactions
+            Real-time economic weight metrics and micropayment flows
           </p>
         </div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           {[
-            { icon: Hash, label: 'Block Height', value: '750,123', change: '+1', trend: 'up' },
-            { icon: Zap, label: 'Hash Rate', value: '120 EH/s', change: '+2.5%', trend: 'up' },
-            { icon: Users, label: 'Active Addresses', value: '2.5M', change: '+5.2%', trend: 'up' },
-            { icon: Activity, label: 'TX/Second', value: '4.8', change: '-0.3', trend: 'down' },
+            { icon: Scale, label: 'Total Weight', value: '125.7K BSV', change: '+12.5%', trend: 'up' },
+            { icon: DollarSign, label: 'Micropayments/hr', value: '450K', change: '+8.3%', trend: 'up' },
+            { icon: Users, label: 'Active Searchers', value: '25.6K', change: '+15.2%', trend: 'up' },
+            { icon: Zap, label: 'Avg Weight/Result', value: '0.0125 BSV', change: '+2.1%', trend: 'up' },
           ].map((stat, index) => (
             <div
               key={index}
@@ -121,7 +121,7 @@ export default function ActivityPage() {
 
         {/* Filter Tabs */}
         <div className="flex gap-2 mb-6">
-          {['all', 'block', 'transaction'].map((type) => (
+          {['all', 'search', 'content', 'payment'].map((type) => (
             <button
               key={type}
               onClick={() => setFilter(type)}

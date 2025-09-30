@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Search, TrendingUp, Database, Filter, Clock, ArrowRight } from 'lucide-react'
+import { Search, TrendingUp, DollarSign, Filter, Clock, ArrowRight, Zap, Scale, Activity } from 'lucide-react'
 import Link from 'next/link'
 
 export default function HomePage() {
@@ -28,7 +28,7 @@ export default function HomePage() {
             <span style={{ fontWeight: '100' }}>Search</span>
           </h1>
           <p className="mb-12 max-w-3xl mx-auto" style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)', fontWeight: '300', color: 'rgba(255, 255, 255, 0.8)', letterSpacing: '0.01em', lineHeight: '1.4' }}>
-            Advanced Search Engine for Bitcoin Blockchain Data
+            Economically Weighted Search - Where Value Determines Relevance
           </p>
 
           {/* Search Bar */}
@@ -39,7 +39,7 @@ export default function HomePage() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search transactions, addresses, blocks, or data..."
+                  placeholder="Search content ranked by economic weight..."
                   className="w-full px-6 py-4 pr-12 rounded-xl text-white placeholder-gray-400 outline-none transition-all"
                   style={{
                     background: 'rgba(255, 255, 255, 0.1)',
@@ -99,7 +99,7 @@ export default function HomePage() {
 
           {/* Quick Search Tags */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {['Recent Blocks', 'Top Addresses', 'Large Transactions', 'Token Activity'].map((tag) => (
+            {['High Value Content', 'Most Paid Results', 'Economic Hotspots', 'Payment Flows'].map((tag) => (
               <button
                 key={tag}
                 className="px-4 py-2 rounded-full text-sm font-medium text-white transition-all"
@@ -122,23 +122,57 @@ export default function HomePage() {
           </div>
         </div>
 
+        {/* How It Works Section */}
+        <div className="mb-16 p-8 rounded-2xl backdrop-blur-sm" style={{
+          background: 'rgba(255, 255, 255, 0.03)',
+          border: '1px solid rgba(255, 255, 255, 0.12)',
+        }}>
+          <h2 className="text-3xl font-light mb-6 text-center">
+            <span className="blue-gradient">Revolutionary</span> Economic Search
+          </h2>
+          <p className="text-gray-400 text-center max-w-3xl mx-auto mb-8 leading-relaxed">
+            Unlike traditional search engines that rely on backlinks and arbitrary algorithms, 
+            Bitcoin Search uses <strong className="text-white">economic weight</strong> to determine relevance. 
+            Every search query, data request, and content view involves micropayments on BSV, 
+            creating a true economic signal of value. Content that people actually pay to access 
+            rises to the top - no gaming, no manipulation, just pure economic truth.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div>
+              <div className="text-3xl mb-2">🔍</div>
+              <h3 className="text-white font-medium mb-2">Search with Sats</h3>
+              <p className="text-gray-500 text-sm">Each search costs micropayments, ensuring quality results</p>
+            </div>
+            <div>
+              <div className="text-3xl mb-2">⚖️</div>
+              <h3 className="text-white font-medium mb-2">Economic Weight</h3>
+              <p className="text-gray-500 text-sm">Content ranked by actual value, not algorithms</p>
+            </div>
+            <div>
+              <div className="text-3xl mb-2">💰</div>
+              <h3 className="text-white font-medium mb-2">Provider Rewards</h3>
+              <p className="text-gray-500 text-sm">Content creators earn from every access</p>
+            </div>
+          </div>
+        </div>
+
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {[
             {
-              icon: Database,
-              title: 'Blockchain Data',
-              description: 'Search through millions of transactions, blocks, and addresses in real-time',
+              icon: Scale,
+              title: 'Economic Weight Ranking',
+              description: 'Content ranked by actual micropayment value, not arbitrary algorithms',
             },
             {
-              icon: Filter,
-              title: 'Advanced Filters',
-              description: 'Filter results by date, amount, type, and custom parameters',
+              icon: DollarSign,
+              title: 'Micropayment Powered',
+              description: 'Every search, click, and data exchange backed by BSV micropayments',
             },
             {
-              icon: TrendingUp,
-              title: 'Analytics',
-              description: 'Get insights and analytics on blockchain activity and trends',
+              icon: Zap,
+              title: 'Real Economic Signals',
+              description: 'Measure true content value through economic weight graph',
             },
           ].map((feature, index) => (
             <div
@@ -181,7 +215,7 @@ export default function HomePage() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-light text-white flex items-center gap-3">
               <Clock className="w-6 h-6 text-blue-400" />
-              Recent Activity
+              Economic Activity
             </h2>
             <Link href="/activity" className="text-blue-400 hover:text-blue-300 flex items-center gap-2">
               View All <ArrowRight className="w-4 h-4" />
@@ -204,12 +238,12 @@ export default function HomePage() {
                 }}
               >
                 <div>
-                  <p className="text-white font-medium">Block #{750000 + item}</p>
-                  <p className="text-gray-400 text-sm">2 minutes ago</p>
+                  <p className="text-white font-medium">{['Wikipedia Article on Bitcoin', 'Satoshi Whitepaper', 'BSV Documentation'][item - 1]}</p>
+                  <p className="text-gray-400 text-sm">Economic Weight: {['0.125 BSV', '0.089 BSV', '0.067 BSV'][item - 1]}</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-blue-400 font-mono">125.5 BSV</p>
-                  <p className="text-gray-400 text-sm">15 transactions</p>
+                  <p className="text-blue-400 font-mono">{['1,250', '890', '670'][item - 1]} sats/view</p>
+                  <p className="text-gray-400 text-sm">{['12.5K', '8.9K', '6.7K'][item - 1]} total paid</p>
                 </div>
               </div>
             ))}
@@ -219,10 +253,10 @@ export default function HomePage() {
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
           {[
-            { label: 'Total Blocks', value: '750,123' },
-            { label: 'Transactions', value: '1.2B+' },
-            { label: 'Active Addresses', value: '2.5M' },
-            { label: 'Network Hash Rate', value: '120 EH/s' },
+            { label: 'Total Economic Weight', value: '125.7K BSV' },
+            { label: 'Micropayments/Day', value: '2.5M+' },
+            { label: 'Avg Payment/Search', value: '210 sats' },
+            { label: 'Content Providers', value: '45K+' },
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <p className="text-3xl font-light blue-gradient mb-2">{stat.value}</p>

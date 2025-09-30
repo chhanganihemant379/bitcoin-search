@@ -1,18 +1,28 @@
 # Bitcoin Search
 
-Advanced Search Engine for Bitcoin Blockchain Data
+Economically Weighted Search - Where Value Determines Relevance
 
 ## Overview
 
-Bitcoin Search is a powerful search platform that allows users to explore and analyze Bitcoin blockchain data in real-time. Search through transactions, addresses, blocks, tokens, and smart contracts with advanced filtering and analytics capabilities.
+Bitcoin Search revolutionizes web search by using **economic weight** instead of traditional backlinks to rank content. Built on BSV micropayments, every search query, data request, and content view involves real economic transactions, creating a true signal of value. This creates an economically weighted search graph where content that people actually pay to access rises to the top - no gaming, no manipulation, just pure economic truth.
 
-## Features
+## How It Works
 
-- **Real-time Blockchain Search**: Search millions of transactions, blocks, and addresses
-- **Advanced Filtering**: Filter results by date, amount, type, and custom parameters
-- **Analytics Dashboard**: Get insights and trends from blockchain activity
-- **Bitcoin OS Integration**: Connect your wallet using @bitcoin-os/bridge
-- **Responsive Design**: Optimized for desktop and mobile devices
+### The $bSearch Token Economy
+- **Revenue Capitalization**: All search revenue capitalizes the $bSearch token
+- **Data Marketplace**: Users buy premium data directly from competing vendors
+- **Quality Incentives**: Data vendors compete on accuracy, speed, and price
+- **Better Than Free**: Paid data is verified, fast, and accurate - unlike "free" alternatives
+
+### Core Features
+
+- **Economic Weight Ranking**: Content ranked by actual micropayment value, not arbitrary algorithms
+- **Micropayment Powered**: Every search costs sats, ensuring quality results
+- **Data Vendor Network**: Multiple data providers compete to serve the best results
+- **Blockchain Explorer**: Built-in explorer for on-chain data verification
+- **Indexer Infrastructure**: Distributed indexers track economic weight across the network
+- **Real Economic Signals**: True content value measured through payment flows
+- **$bSearch Token**: Captures search economy value and rewards participants
 
 ## Tech Stack
 
