@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import component styles */
+@import '../components/DevSidebar.css';
+@import '../components/Dock.css';
+@import '../components/ProofOfConceptBar.css';
+@import '../components/TopMenuBar.css';
+
 :root {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 10, 10, 10;
