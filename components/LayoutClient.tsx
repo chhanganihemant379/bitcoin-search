@@ -13,15 +13,15 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
 
   return (
     <div className="min-h-screen flex flex-col relative">
+      {/* Proof of Concept Bar - Always at the very top */}
+      <ProofOfConceptBar />
+
       {/* Top Menu Bar (Taskbar) */}
       <TopMenuBar 
         context="bitcoin-search"
         showSystemStatus={true}
         onAppClick={(app: string) => console.log('App clicked:', app)}
       />
-
-      {/* Proof of Concept Bar */}
-      <ProofOfConceptBar />
 
       {/* Main Content Area */}
       <div className="flex flex-1 relative">
