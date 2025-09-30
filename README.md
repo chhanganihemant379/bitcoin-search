@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bitcoin Search
+
+Advanced Search Engine for Bitcoin Blockchain Data
+
+## Overview
+
+Bitcoin Search is a powerful search platform that allows users to explore and analyze Bitcoin blockchain data in real-time. Search through transactions, addresses, blocks, tokens, and smart contracts with advanced filtering and analytics capabilities.
+
+## Features
+
+- **Real-time Blockchain Search**: Search millions of transactions, blocks, and addresses
+- **Advanced Filtering**: Filter results by date, amount, type, and custom parameters
+- **Analytics Dashboard**: Get insights and trends from blockchain activity
+- **Bitcoin OS Integration**: Connect your wallet using @bitcoin-os/bridge
+- **Responsive Design**: Optimized for desktop and mobile devices
+
+## Tech Stack
+
+- **Framework**: Next.js 15.5.4 with TypeScript
+- **Styling**: Tailwind CSS
+- **Wallet Integration**: @bitcoin-os/bridge
+- **Icons**: Lucide React
+- **Runtime**: Node.js
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ installed
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/bitcoin-search.git
+cd bitcoin-search
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3020](http://localhost:3020) in your browser
 
-## Learn More
+## Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` - Start development server on port 3020
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+bitcoin-search/
+├── app/                # Next.js app directory
+│   ├── layout.tsx     # Root layout
+│   ├── page.tsx       # Home page with search
+│   └── globals.css    # Global styles
+├── components/        # React components
+│   ├── BitcoinOSIntegration.tsx
+│   ├── LayoutClient.tsx
+│   └── Providers.tsx
+├── public/           # Static assets
+└── package.json      # Dependencies
+```
 
-## Deploy on Vercel
+## Environment Variables
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Create a `.env.local` file in the root directory:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```env
+# Add any required environment variables here
+NEXT_PUBLIC_API_URL=your_api_url
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Support
+
+For support, please open an issue on GitHub or contact the development team.
