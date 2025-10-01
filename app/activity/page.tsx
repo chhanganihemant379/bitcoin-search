@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Activity, TrendingUp, ArrowUpRight, ArrowDownRight, Clock, DollarSign, Users, Zap, Scale, Search } from 'lucide-react'
+import { Activity, TrendingUp, ArrowUpRight, ArrowDownRight, Clock, DollarSign, Users, Zap, Scale, Search, Grid3X3 } from 'lucide-react'
 
 export default function ActivityPage() {
   const [filter, setFilter] = useState('all')
@@ -164,7 +164,7 @@ export default function ActivityPage() {
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-4">
                       <div className="p-3 rounded-lg" style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #1e40af 100%)' }}>
-                        <Hash className="w-5 h-5 text-white" />
+                        <Grid3X3 className="w-5 h-5 text-white" />
                       </div>
                       <div>
                         <h3 className="text-white font-medium text-lg">Block #{activity.height}</h3>

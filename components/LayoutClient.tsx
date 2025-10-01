@@ -18,31 +18,14 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
 
       {/* Top Menu Bar (Taskbar) */}
       <TopMenuBar 
-        context="bitcoin-search"
-        showSystemStatus={true}
-        onAppClick={(app: string) => console.log('App clicked:', app)}
+        onOpenApp={(app: string) => console.log('App clicked:', app)}
       />
 
       {/* Main Content Area */}
       <div className="flex flex-1 relative">
         {/* Developer Sidebar */}
         {showDevSidebar && (
-          <DevSidebar 
-            context="bitcoin-search"
-            githubRepo="https://github.com/bitcoin-apps-suite/bitcoin-search"
-            statsOverride={{
-              searches: '125K',
-              micropayments: '2.5M',
-              dataVendors: '45',
-              economicWeight: '125.7K BSV'
-            }}
-            customMenuItems={[
-              { icon: '🔍', label: 'Search Analytics' },
-              { icon: '💰', label: '$bSearch Token' },
-              { icon: '📊', label: 'Economic Weight Graph' },
-              { icon: '🔗', label: 'Data Vendors' }
-            ]}
-          />
+          <DevSidebar />
         )}
 
         {/* Main Content */}
@@ -54,31 +37,7 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
 
       {/* Dock */}
       {showDock && (
-        <Dock 
-          context="bitcoin-search"
-          customApps={[
-            { 
-              id: 'search', 
-              name: 'Bitcoin Search', 
-              icon: '🔍',
-              description: 'Economically Weighted Search'
-            },
-            {
-              id: 'explorer',
-              name: 'Block Explorer',
-              icon: '🔗',
-              description: 'On-chain Data Verification'
-            },
-            {
-              id: 'token',
-              name: '$bSearch Token',
-              icon: '💰',
-              description: 'Search Economy Token'
-            }
-          ]}
-          showSystemStatus={true}
-          onAppClick={(app: any) => console.log('Dock app clicked:', app)}
-        />
+        <Dock />
       )}
     </div>
   )

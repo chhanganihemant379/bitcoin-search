@@ -155,6 +155,74 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
       ]
     },
     {
+      label: 'Search',
+      items: [
+        { 
+          label: 'New Search', 
+          shortcut: '⌘N',
+          action: () => window.location.href = '/'
+        },
+        { 
+          label: 'Advanced Search', 
+          shortcut: '⌘⇧F',
+          action: () => console.log('Advanced Search')
+        },
+        { divider: true },
+        { 
+          label: 'Search History', 
+          action: () => console.log('Search History')
+        },
+        { 
+          label: 'Saved Searches', 
+          action: () => console.log('Saved Searches')
+        },
+        { divider: true },
+        { 
+          label: 'Export Results', 
+          action: () => console.log('Export Results')
+        },
+        { 
+          label: 'Share Search', 
+          action: () => console.log('Share Search')
+        }
+      ]
+    },
+    {
+      label: 'Tools',
+      items: [
+        {
+          label: 'Search Analytics',
+          icon: '📊',
+          shortcut: '⌘⌥A',
+          action: () => window.location.href = '/analytics'
+        },
+        { divider: true },
+        { 
+          label: 'Index Management', 
+          action: () => window.location.href = '/admin/index'
+        },
+        { 
+          label: 'Weight Configuration', 
+          action: () => window.location.href = '/admin/weights'
+        },
+        { divider: true },
+        { 
+          label: 'API Documentation', 
+          href: '/docs/api',
+          external: false
+        },
+        { 
+          label: 'Search API Tester', 
+          action: () => window.location.href = '/tools/api-tester'
+        },
+        { divider: true },
+        { 
+          label: 'Economic Weight Calculator', 
+          action: () => window.location.href = '/tools/weight-calculator'
+        }
+      ]
+    },
+    {
       label: 'View',
       items: [
         { 
@@ -178,6 +246,26 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
           label: 'Enter Full Screen', 
           shortcut: '⌃⌘F',
           action: () => document.documentElement.requestFullscreen()
+        },
+        { divider: true },
+        { 
+          label: 'Search Results View', 
+          action: () => console.log('Results View')
+        },
+        { 
+          label: 'List View', 
+          shortcut: '⌘1',
+          action: () => console.log('List View')
+        },
+        { 
+          label: 'Grid View', 
+          shortcut: '⌘2',
+          action: () => console.log('Grid View')
+        },
+        { 
+          label: 'Detailed View', 
+          shortcut: '⌘3',
+          action: () => console.log('Detailed View')
         },
         { divider: true },
         { 
@@ -252,9 +340,22 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
       label: 'Help',
       items: [
         { 
-          label: 'Bitcoin OS Help', 
+          label: 'Bitcoin Search Help', 
           shortcut: '⌘?',
-          action: () => alert('Bitcoin OS v1.0\n\nThe Operating System for Bitcoin')
+          action: () => alert('Bitcoin Search v1.0\n\nEconomically weighted search engine powered by Bitcoin\n\n© 2025 The Bitcoin Corporation LTD\nRegistered in England and Wales • Company No. 16735102')
+        },
+        { divider: true },
+        { 
+          label: 'Search Tutorial', 
+          action: () => window.location.href = '/docs/tutorial'
+        },
+        { 
+          label: 'Economic Weighting Guide', 
+          action: () => window.location.href = '/docs/weighting'
+        },
+        { 
+          label: 'API Documentation', 
+          action: () => window.location.href = '/docs/api'
         },
         { divider: true },
         { 
@@ -263,13 +364,18 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
         },
         { 
           label: 'GitHub Repository', 
-          href: 'https://github.com/bitcoin-apps-suite/bitcoin-OS',
+          href: 'https://github.com/bitcoin-apps-suite/bitcoin-search',
           external: true
         },
         { divider: true },
         { 
           label: 'Report an Issue', 
-          href: 'https://github.com/bitcoin-apps-suite/bitcoin-OS/issues',
+          href: 'https://github.com/bitcoin-apps-suite/bitcoin-search/issues',
+          external: true
+        },
+        { 
+          label: 'Feature Request', 
+          href: 'https://github.com/bitcoin-apps-suite/bitcoin-search/issues/new?template=feature_request.md',
           external: true
         }
       ]

@@ -31,21 +31,24 @@ import './DevSidebar.css'
 
 export default function DevSidebar() {
   const pathname = usePathname()
-  const [isCollapsed, setIsCollapsed] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('devSidebarCollapsed')
-      // Default to collapsed (closed) for first-time visitors
-      return saved !== null ? saved === 'true' : true
-    }
-    return true
-  })
+  const [isCollapsed, setIsCollapsed] = useState(true) // Always start with true for consistent hydration
+  const [mounted, setMounted] = useState(false)
   const [issueCount, setIssueCount] = useState<number>(0)
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    setMounted(true)
+    // Load saved state after mount
+    const saved = localStorage.getItem('devSidebarCollapsed')
+    if (saved !== null) {
+      setIsCollapsed(saved === 'true')
+    }
+  }, [])
+
+  useEffect(() => {
+    if (mounted) {
       localStorage.setItem('devSidebarCollapsed', isCollapsed.toString())
     }
-  }, [isCollapsed])
+  }, [isCollapsed, mounted])
 
   // Fetch GitHub issues count
   useEffect(() => {
@@ -59,50 +62,56 @@ export default function DevSidebar() {
         setIssueCount(0)
       }
     }
-    fetchIssues()
+    // fetchIssues() // Disabled for now as repo may not exist yet
   }, [])
 
   const menuItems: Array<{
     path?: string
-    icon?: any
+    icon?: React.ComponentType<{ size?: number; className?: string }>
     label?: string
     badge?: string
     divider?: boolean
     section?: string
     external?: boolean
   }> = [
-    // Token & Core at top
-    { path: '/token', icon: Coins, label: '$bOS Token', badge: 'NEW' },
-    { path: '/contracts', icon: Terminal, label: 'Smart Contracts', badge: 'BETA' },
-    { path: '/exchange', icon: Download, label: 'Token Exchange' },
+    // Search & Economy at top
+    { path: '/token', icon: Coins, label: '$bSearch Token', badge: 'LIVE' },
+    { path: '/vendors', icon: Package, label: 'Data Vendors', badge: '45' },
+    { path: '/explorer', icon: Activity, label: 'Economic Explorer' },
     
-    // System Operations
+    // Search Operations
     { divider: true },
-    { section: 'SYSTEM' },
-    { path: '/tasks', icon: ListTodo, label: 'Task Manager' },
-    { path: '/contributors', icon: Users, label: 'Contributors', badge: '42' },
-    { path: '/docs', icon: BookOpen, label: 'Documentation' },
+    { section: 'SEARCH ENGINE' },
+    { path: '/analytics', icon: Activity, label: 'Search Analytics' },
+    { path: '/ranking', icon: ListTodo, label: 'Economic Ranking' },
+    { path: '/api', icon: Terminal, label: 'Search API', badge: 'v2' },
+    
+    // Data Marketplace
+    { divider: true },
+    { section: 'DATA MARKETPLACE' },
+    { path: '/marketplace', icon: Users, label: 'Vendor Marketplace' },
+    { path: '/quality', icon: CheckCircle, label: 'Quality Metrics', badge: '98.5%' },
+    { path: '/docs', icon: BookOpen, label: 'Integration Docs' },
     
     // Development
     { divider: true },
     { section: 'DEVELOPMENT' },
-    { path: '/api', icon: Package, label: 'API Reference' },
-    { path: 'https://github.com/bitcoin-apps-suite/bitcoin-OS', icon: Github, label: 'GitHub Repository', external: true },
-    { path: 'https://github.com/bitcoin-apps-suite/bitcoin-OS/issues', icon: FileCode, label: 'Issues', badge: issueCount > 0 ? String(issueCount) : '0', external: true },
-    { path: 'https://github.com/bitcoin-apps-suite/bitcoin-OS/pulls', icon: GitPullRequest, label: 'Pull Requests', external: true },
+    { path: 'https://github.com/bitcoin-apps-suite/bitcoin-search', icon: Github, label: 'GitHub Repository', external: true },
+    { path: 'https://github.com/bitcoin-apps-suite/bitcoin-search/issues', icon: FileCode, label: 'Issues', badge: issueCount > 0 ? String(issueCount) : '0', external: true },
+    { path: 'https://github.com/bitcoin-apps-suite/bitcoin-search/pulls', icon: GitPullRequest, label: 'Pull Requests', external: true },
     
     // System Status
     { divider: true },
     { path: '/changelog', icon: History, label: 'Changelog' },
-    { path: '/status', icon: CheckCircle, label: 'System Status', badge: 'OK' }
+    { path: '/status', icon: CheckCircle, label: 'Search Status', badge: 'FAST' }
   ]
 
   const stats = {
-    totalSupply: '1,000,000,000,000',
-    distributed: '12,456,789',
-    contributors: '42',
-    openTasks: issueCount || 0,
-    networkNodes: '150+'
+    searches: '125K',
+    micropayments: '2.5M', 
+    dataVendors: '45',
+    economicWeight: '125.7K BSV',
+    avgSearchValue: '0.002 BSV'
   }
 
   return (
@@ -111,7 +120,7 @@ export default function DevSidebar() {
         {!isCollapsed && (
           <div className="dev-sidebar-title">
             <Monitor className="dev-sidebar-logo" />
-            <span>Developer Hub</span>
+            <span>Search Dashboard</span>
           </div>
         )}
         <button 
@@ -150,7 +159,7 @@ export default function DevSidebar() {
                 className={`dev-sidebar-item ${isActive ? 'active' : ''}`}
                 title={isCollapsed ? item.label : undefined}
               >
-                <Icon size={20} />
+                {Icon && <Icon size={20} />}
                 {!isCollapsed && (
                   <>
                     <span className="dev-sidebar-label">{item.label}</span>
@@ -168,7 +177,7 @@ export default function DevSidebar() {
               className={`dev-sidebar-item ${isActive ? 'active' : ''}`}
               title={isCollapsed ? item.label : undefined}
             >
-              <Icon size={20} />
+              {Icon && <Icon size={20} />}
               {!isCollapsed && (
                 <>
                   <span className="dev-sidebar-label">{item.label}</span>
@@ -183,26 +192,26 @@ export default function DevSidebar() {
       {/* Stats section */}
       {!isCollapsed && (
         <div className="dev-sidebar-stats">
-          <h4>bOS Stats</h4>
+          <h4>Search Economy</h4>
           <div className="dev-stat">
-            <span className="dev-stat-label">Total Supply</span>
-            <span className="dev-stat-value">{stats.totalSupply}</span>
+            <span className="dev-stat-label">Daily Searches</span>
+            <span className="dev-stat-value">{stats.searches}</span>
           </div>
           <div className="dev-stat">
-            <span className="dev-stat-label">Distributed</span>
-            <span className="dev-stat-value">{stats.distributed}</span>
+            <span className="dev-stat-label">Micropayments</span>
+            <span className="dev-stat-value">{stats.micropayments}</span>
           </div>
           <div className="dev-stat">
-            <span className="dev-stat-label">Contributors</span>
-            <span className="dev-stat-value">{stats.contributors}</span>
+            <span className="dev-stat-label">Data Vendors</span>
+            <span className="dev-stat-value">{stats.dataVendors}</span>
           </div>
           <div className="dev-stat">
-            <span className="dev-stat-label">Open Tasks</span>
-            <span className="dev-stat-value">{stats.openTasks}</span>
+            <span className="dev-stat-label">Economic Weight</span>
+            <span className="dev-stat-value">{stats.economicWeight}</span>
           </div>
           <div className="dev-stat">
-            <span className="dev-stat-label">Network Nodes</span>
-            <span className="dev-stat-value">{stats.networkNodes}</span>
+            <span className="dev-stat-label">Avg Search Value</span>
+            <span className="dev-stat-value">{stats.avgSearchValue}</span>
           </div>
         </div>
       )}
@@ -211,14 +220,12 @@ export default function DevSidebar() {
       {!isCollapsed && (
         <div className="dev-sidebar-footer">
           <div className="dev-sidebar-cta">
-            <p>Join Development</p>
+            <p>Become a Data Vendor</p>
             <a 
-              href="https://github.com/bitcoin-apps-suite/bitcoin-OS" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="/vendors" 
               className="dev-sidebar-cta-button"
             >
-              Start Contributing
+              Start Earning
             </a>
           </div>
         </div>
