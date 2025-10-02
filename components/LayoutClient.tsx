@@ -12,7 +12,7 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
   const [showDock, setShowDock] = useState(true)
 
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="min-h-screen flex flex-col relative" style={{ paddingTop: '68px' }}>
       {/* Proof of Concept Bar - Always at the very top */}
       <ProofOfConceptBar />
 
