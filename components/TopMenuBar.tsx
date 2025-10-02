@@ -567,7 +567,7 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
       {/* Right side - Status */}
       <div className="taskbar-status">
         <a 
-          href="https://github.com/bitcoin-apps-suite/bitcoin-OS" 
+          href="https://github.com/bitcoin-apps-suite/bitcoin-search" 
           target="_blank" 
           rel="noopener noreferrer"
           className="taskbar-link"
