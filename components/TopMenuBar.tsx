@@ -223,6 +223,52 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
       ]
     },
     {
+      label: 'Blockchain',
+      items: [
+        { 
+          label: 'Exchange', 
+          action: () => window.location.href = '/exchange'
+        },
+        { 
+          label: 'Live Trading', 
+          action: () => window.location.href = '/exchange/trading'
+        },
+        { 
+          label: 'Market Data', 
+          action: () => window.location.href = '/exchange/markets'
+        },
+        { divider: true },
+        { 
+          label: 'BSV Blockchain Explorer', 
+          href: 'https://whatsonchain.com/',
+          external: true
+        },
+        { 
+          label: 'Network Status', 
+          action: () => window.location.href = '/blockchain/status'
+        },
+        { 
+          label: 'Mempool Monitor', 
+          action: () => window.location.href = '/blockchain/mempool'
+        },
+        { divider: true },
+        { 
+          label: 'Transaction Search', 
+          shortcut: '⌘T',
+          action: () => window.location.href = '/blockchain/transactions'
+        },
+        { 
+          label: 'Address Lookup', 
+          shortcut: '⌘⇧A',
+          action: () => window.location.href = '/blockchain/addresses'
+        },
+        { 
+          label: 'Block Explorer', 
+          action: () => window.location.href = '/blockchain/blocks'
+        }
+      ]
+    },
+    {
       label: 'View',
       items: [
         { 
