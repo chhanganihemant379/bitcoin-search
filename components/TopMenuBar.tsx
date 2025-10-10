@@ -182,6 +182,10 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
           action: () => window.location.href = '/advanced-search'
         },
         { 
+          label: 'Search Bundles', 
+          action: () => window.location.href = '/bundles'
+        },
+        { 
           label: 'Search History', 
           action: () => console.log('Search History')
         },
