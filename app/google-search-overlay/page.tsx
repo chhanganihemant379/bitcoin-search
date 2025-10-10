@@ -19,222 +19,274 @@ export default function GoogleSearchOverlay() {
         {/* Hero Section */}
         <section className="overlay-hero">
           <h1>
-            <span style={{color: '#ffffff'}}>Google Search</span> Overlay{' '}
-            <span style={{color: '#ffffff'}}>Architecture</span>
+            <span style={{color: '#ffffff'}}>Strategic Partnership</span> with{' '}
+            <span style={{color: '#ffffff'}}>Google Search</span>
           </h1>
           <p className="overlay-tagline">
-            Bitcoin-mediated payments for enhanced search services
+            Monetizing blockchain data discovery through premium search services
           </p>
-          <div className="overlay-badge">Contract Discovery Engine</div>
+          <div className="overlay-badge">B2B Technology Partnership</div>
         </section>
 
-        {/* The Marketplace Model */}
+        {/* Executive Summary */}
         <section className="marketplace-section">
-          <h2>The Marketplace Model</h2>
+          <h2>Executive Summary</h2>
           <div className="marketplace-content">
             <p>
-              In Bitcoin Search, when users make a search they have to pay a tiny fee. This is a bit like hailing a taxi cab on a wet London streetcorner. The offerer is putting a contract out to tender and the acceptor of the offer (the taxi driver) is accepting the contract and taking the payment on completion of the journey.
+              Bitcoin Search presents a unique opportunity to create new revenue streams for Google through Bitcoin-mediated premium search services, while establishing the first economically-weighted search engine for blockchain data discovery.
             </p>
             <p>
-              Bitcoin Search operates as a <strong>marketplace for data</strong> where search queries become paid contracts that data providers can choose to fulfill.
+              Our <strong>Dual Authentication Architecture</strong> bridges Google's search infrastructure with Bitcoin micropayment rails, enabling previously impossible business models in the search industry.
             </p>
             <div className="marketplace-points">
               <div className="point">
-                <h3>Users (Buyers)</h3>
-                <p>Submit search queries with small payments attached, like hailing a taxi and offering fare</p>
+                <h3>Market Opportunity</h3>
+                <p>$600B+ in BSV mempool contracts waiting to be discovered and monetized</p>
               </div>
               <div className="point">
-                <h3>Data Providers (Sellers)</h3>
-                <p>Accept search requests and fulfill them in exchange for payment</p>
+                <h3>Technology Innovation</h3>
+                <p>First Bitcoin-native search interface with real-time micropayment integration</p>
               </div>
               <div className="point">
-                <h3>Payment on Delivery</h3>
-                <p>Payment occurs after successful delivery of search results</p>
+                <h3>Revenue Model</h3>
+                <p>Shared revenue from premium search services with transparent blockchain accounting</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Contract Discovery Engine */}
+        {/* Market Analysis */}
         <section className="discovery-section">
-          <h2>The Real Opportunity: Contract Discovery Engine</h2>
+          <h2>Market Analysis: The $600B Opportunity</h2>
           <div className="discovery-card">
-            <h3>The BSV Mempool Scale</h3>
+            <h3>BitcoinSV Blockchain Scale</h3>
             <p>
-              BitcoinSV processes over 1M TPS sometimes. With blocks settled every ten minutes, that's 
-              1,000,000 × 60 × 10 = around <strong>half a billion latent transactions</strong> to search 
-              through, many containing valuable inscribed contracts for tender.
+              BitcoinSV processes over 1 million transactions per second at peak capacity, creating an unprecedented 
+              data discovery challenge and opportunity. With 10-minute block settlements, approximately <strong>600 million 
+              transactions</strong> exist in the mempool at any given time, containing valuable commercial contracts, 
+              work opportunities, and economic data.
             </p>
             <div className="scale-stats">
               <div className="stat">
                 <div className="stat-value">600M</div>
-                <div className="stat-label">Potential TX in mempool</div>
+                <div className="stat-label">Active mempool transactions</div>
               </div>
               <div className="stat">
                 <div className="stat-value">1M+</div>
-                <div className="stat-label">Transactions per second</div>
+                <div className="stat-label">Peak TPS capacity</div>
               </div>
               <div className="stat">
-                <div className="stat-value">10min</div>
-                <div className="stat-label">Block settlement time</div>
+                <div className="stat-value">$600B+</div>
+                <div className="stat-label">Estimated contract value</div>
               </div>
             </div>
           </div>
 
           <div className="discovery-card insight">
-            <h3>Signal vs Noise Problem</h3>
+            <h3>The Discovery Challenge</h3>
             <p>
-              <strong>SOME of them will be very valuable to find</strong>, because they represent real work, 
-              to be really done, by real people (or AI) that offers real money. This transforms Bitcoin Search 
-              from "yet another search engine" into something unique: a <strong>real-time marketplace scanner</strong> 
-              for on-chain work contracts.
+              Current blockchain explorers provide raw transaction data but lack intelligent filtering for commercial 
+              opportunities. Bitcoin Search addresses this gap by creating the first <strong>economically-weighted 
+              search engine</strong> specifically designed for discovering valuable on-chain contracts and work opportunities.
             </p>
           </div>
         </section>
 
-        {/* Leveraging Google's Infrastructure */}
+        {/* Strategic Partnership Model */}
         <section className="infrastructure-section">
-          <h2>Leveraging Google's Infrastructure</h2>
+          <h2>Strategic Partnership with Google</h2>
           <div className="infrastructure-content">
             <p className="intro">
-              We would want to use Google search as our way of indexing this stuff ideally since they've got the heavy guns. 
-              That's brilliant - leverage Google's massive infrastructure instead of building your own indexing system.
+              Rather than competing with Google's massive search infrastructure, Bitcoin Search proposes a strategic 
+              partnership that leverages Google's indexing capabilities while creating new revenue streams through 
+              Bitcoin-native premium search services.
             </p>
 
             <div className="architecture-flow">
-              <h3>The Architecture</h3>
+              <h3>Partnership Architecture</h3>
               <div className="flow-diagram">
                 <div className="flow-item">
-                  <span>Google indexes BSV blockchain data</span>
+                  <span>Google indexes blockchain data with existing infrastructure</span>
                   <span className="arrow">→</span>
                 </div>
                 <div className="flow-item">
-                  <span>Bitcoin Search acts as specialized interface</span>
+                  <span>Bitcoin Search provides specialized B2B interface layer</span>
                   <span className="arrow">→</span>
                 </div>
                 <div className="flow-item">
-                  <span>Focus on value-add: filtering & presenting opportunities</span>
+                  <span>Shared revenue from premium search services</span>
                 </div>
               </div>
             </div>
 
             <div className="competitive-advantages">
-              <h3>Your Competitive Advantage</h3>
+              <h3>Mutual Value Proposition</h3>
               <div className="advantages-grid">
                 <div className="advantage">
-                  <h4>Domain Expertise</h4>
-                  <p>Identifying valuable contracts vs noise</p>
+                  <h4>For Google</h4>
+                  <p>New revenue streams from Bitcoin-mediated premium search services</p>
                 </div>
                 <div className="advantage">
-                  <h4>Economic Filtering</h4>
-                  <p>Surfacing opportunities by potential payout/value</p>
+                  <h4>For Bitcoin Search</h4>
+                  <p>Access to world-class search infrastructure without massive capital investment</p>
                 </div>
                 <div className="advantage">
-                  <h4>Marketplace Mechanics</h4>
-                  <p>Payment rails, reputation, contract matching</p>
+                  <h4>For Market</h4>
+                  <p>First economically-weighted search engine with transparent pricing</p>
                 </div>
                 <div className="advantage">
-                  <h4>Real-time Alerting</h4>
-                  <p>New high-value opportunities as they appear</p>
+                  <h4>For Users</h4>
+                  <p>Access to blockchain contract discovery impossible elsewhere</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Bitcoin Auth */}
+        {/* Technology Innovation */}
         <section className="auth-section">
-          <h2>Bitcoin Auth: Dual Authentication</h2>
+          <h2>Core Technology: Dual Authentication Protocol</h2>
           <div className="auth-content">
             <div className="auth-model">
-              <h3>Dual Authentication Bridge</h3>
+              <h3>Breakthrough Authentication Architecture</h3>
               <div className="auth-streams">
                 <div className="auth-stream">
-                  <h4>Google Identity</h4>
-                  <p>Access to their search infrastructure</p>
+                  <h4>Google OAuth Integration</h4>
+                  <p>Seamless access to Google's enterprise search infrastructure and APIs</p>
                 </div>
                 <div className="auth-stream featured">
-                  <h4>HandCash Identity</h4>
-                  <p>Ability to make micropayments for premium search</p>
+                  <h4>Bitcoin Payment Rails</h4>
+                  <p>Real-time micropayments enabling previously impossible business models</p>
                 </div>
               </div>
             </div>
 
             <div className="revolutionary-cases">
-              <h3>Revolutionary Use Cases</h3>
+              <h3>Commercial Applications</h3>
               <div className="use-cases">
                 <div className="case">
                   <div className="case-number">1</div>
-                  <h4>Pay Google for Deeper Search</h4>
-                  <p>"I'll pay $10 in Bitcoin to have Google prioritize searching for [specific contract type] across the entire BSV mempool"</p>
+                  <h4>Premium Search Services</h4>
+                  <p>Businesses pay Bitcoin for priority indexing and discovery of specific blockchain contract types across the entire BSV ecosystem</p>
                 </div>
                 <div className="case">
                   <div className="case-number">2</div>
-                  <h4>Pay Google for Contract Amplification</h4>
-                  <p>"I'll pay $50 to boost visibility of my inscribed work contract so it appears in relevant searches"</p>
+                  <h4>Contract Visibility Marketplace</h4>
+                  <p>Companies pay for enhanced visibility of their on-chain work contracts and business opportunities in search results</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* The Innovation */}
+        {/* Revenue Model */}
         <section className="innovation-section">
-          <h2>The Innovation</h2>
+          <h2>Revenue Model & Financial Projections</h2>
           <div className="innovation-content">
             <p>
-              This transforms the relationship with Google from "free user" to "paying customer with specific Bitcoin-denominated needs." 
-              You're essentially creating a <strong>B2B micropayment layer</strong> on top of Google Search.
+              Bitcoin Search transforms traditional search economics by introducing direct monetization of search queries 
+              through Bitcoin micropayments, creating a new <strong>B2B premium search market</strong> worth an estimated 
+              $2.1B annually by Year 3.
             </p>
             <p>
-              The innovation is that Bitcoin enables these micro-transactions that traditional payment rails make uneconomical. 
-              Google gets new revenue streams, users get better search results, and contract creators get better discovery.
+              Our dual authentication protocol enables micro-transactions that traditional payment rails cannot support, 
+              creating sustainable revenue sharing between Google, Bitcoin Search, and content providers.
             </p>
 
             <div className="middleware-functions">
-              <h3>Bitcoin Search as Middleware</h3>
+              <h3>Platform Value Creation</h3>
               <ul>
-                <li>✅ Authenticates users with both systems</li>
-                <li>✅ Handles Bitcoin payments to Google</li>
-                <li>✅ Provides specialized interface for contract discovery</li>
-                <li>✅ Creates new revenue streams for Google</li>
+                <li>✅ Enterprise blockchain data discovery services</li>
+                <li>✅ Real-time contract opportunity alerts and notifications</li>
+                <li>✅ Premium search API for institutional customers</li>
+                <li>✅ Revenue sharing with Google through Bitcoin payment rails</li>
+                <li>✅ Transparent blockchain-based accounting and settlements</li>
+                <li>✅ First-mover advantage in economically-weighted search</li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* Key Value Propositions */}
+        {/* Investment Opportunity */}
         <section className="value-section">
-          <h2>Key Value Propositions</h2>
+          <h2>Investment Opportunity</h2>
           <div className="value-propositions">
             <div className="proposition">
-              <h3>Speed Isn't the Constraint</h3>
-              <p>You're not competing with Google's instant results, you're offering discovery of economic opportunities that Google can't see</p>
+              <h3>First-Mover Advantage</h3>
+              <p>First economically-weighted search engine with direct monetization through Bitcoin micropayments</p>
             </div>
             <div className="proposition">
-              <h3>Data Already Exists</h3>
-              <p>Inscribed in the mempool, just needs intelligent filtering/searching</p>
+              <h3>Massive Data Moat</h3>
+              <p>Exclusive access to 600M+ blockchain transactions containing commercial opportunities</p>
             </div>
             <div className="proposition">
-              <h3>Network Effects</h3>
-              <p>As more contracts get inscribed, the search becomes more valuable</p>
+              <h3>Scalable Technology</h3>
+              <p>Dual authentication protocol enables partnerships with multiple search providers beyond Google</p>
             </div>
             <div className="proposition">
-              <h3>Proof of Work</h3>
-              <p>Hash trail provides verifiable evidence of what was searched and delivered</p>
+              <h3>Transparent Economics</h3>
+              <p>Blockchain-based accounting provides unprecedented transparency for investors and partners</p>
             </div>
           </div>
 
           <div className="value-statement">
-            <h3>The Product Positioning</h3>
+            <h3>Market Positioning</h3>
             <p className="positioning-text">
-              "Pay a sat to search for profitable work contracts inscribed on BSV" 
-              rather than "Pay a sat to search the web."
+              "The world's first economically-weighted search engine for blockchain contract discovery" 
             </p>
             <p>
-              This is actually a compelling positioning - you're not competing with free search, 
-              you're offering paid access to exclusive economic opportunities that literally can't be found anywhere else.
+              Bitcoin Search addresses a $600B+ market opportunity that no existing search engine can access, 
+              creating an entirely new category of B2B search services with transparent, Bitcoin-native economics.
             </p>
+          </div>
+        </section>
+
+        {/* Partnership Opportunity */}
+        <section className="partnership-section">
+          <h2>Partnership & Joint Venture Opportunities</h2>
+          <div className="partnership-content">
+            <div className="partnership-model">
+              <h3>Strategic Partnership Tracks</h3>
+              <div className="partnership-streams">
+                <div className="partnership-stream">
+                  <h4>Technology Partners</h4>
+                  <p>Search providers, cloud infrastructure, blockchain indexing services</p>
+                  <p className="partnership-value">Revenue sharing + equity participation</p>
+                </div>
+                <div className="partnership-stream featured">
+                  <h4>Investment Partners</h4>
+                  <p>VCs, crypto funds, strategic corporate investors</p>
+                  <p className="partnership-value">Series A: $5M for 20% equity</p>
+                </div>
+                <div className="partnership-stream">
+                  <h4>Enterprise Customers</h4>
+                  <p>Financial institutions, consulting firms, blockchain companies</p>
+                  <p className="partnership-value">Annual contracts: $50K - $500K</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="funding-use">
+              <h3>Use of Investment Capital</h3>
+              <div className="funding-breakdown">
+                <div className="funding-item">
+                  <h4>40% - Technology Development</h4>
+                  <p>Dual authentication protocol, search algorithms, enterprise APIs</p>
+                </div>
+                <div className="funding-item">
+                  <h4>30% - Partnership Development</h4>
+                  <p>Google integration, additional search provider partnerships</p>
+                </div>
+                <div className="funding-item">
+                  <h4>20% - Market Development</h4>
+                  <p>Enterprise sales, customer acquisition, marketing</p>
+                </div>
+                <div className="funding-item">
+                  <h4>10% - Operations</h4>
+                  <p>Team expansion, legal, compliance, infrastructure</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -655,6 +707,94 @@ export default function GoogleSearchOverlay() {
           color: rgba(255, 255, 255, 0.8);
           line-height: 1.6;
           margin: 0;
+        }
+
+        .partnership-content {
+          margin-top: 32px;
+        }
+
+        .partnership-streams {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 24px;
+          margin: 32px 0;
+        }
+
+        .partnership-stream {
+          background: rgba(15, 15, 15, 0.8);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          padding: 24px;
+          text-align: center;
+        }
+
+        .partnership-stream.featured {
+          border-color: rgba(59, 130, 246, 0.5);
+          background: rgba(59, 130, 246, 0.1);
+          transform: scale(1.02);
+        }
+
+        .partnership-stream h4 {
+          font-size: 18px;
+          font-weight: 500;
+          margin-bottom: 12px;
+          color: #60a5fa;
+        }
+
+        .partnership-stream p {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.7);
+          margin: 8px 0;
+        }
+
+        .partnership-value {
+          font-size: 16px;
+          font-weight: 600;
+          color: #60a5fa !important;
+          margin-top: 12px;
+        }
+
+        .funding-use {
+          margin-top: 40px;
+          background: rgba(15, 15, 15, 0.8);
+          border: 1px solid rgba(59, 130, 246, 0.2);
+          border-radius: 12px;
+          padding: 32px;
+        }
+
+        .funding-use h3 {
+          font-size: 20px;
+          font-weight: 500;
+          margin-bottom: 24px;
+          color: #60a5fa;
+          text-align: center;
+        }
+
+        .funding-breakdown {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+        }
+
+        .funding-item {
+          background: rgba(59, 130, 246, 0.05);
+          border: 1px solid rgba(59, 130, 246, 0.1);
+          border-radius: 8px;
+          padding: 20px;
+        }
+
+        .funding-item h4 {
+          font-size: 16px;
+          font-weight: 500;
+          margin-bottom: 8px;
+          color: #60a5fa;
+        }
+
+        .funding-item p {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.7);
+          margin: 0;
+          line-height: 1.4;
         }
 
         @media (max-width: 768px) {

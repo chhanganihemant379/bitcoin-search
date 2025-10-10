@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 /* Import component styles */
+@import '../components/DevSidebar.css';
+@import '../components/Dock.css';
+@import '../components/ProofOfConceptBar.css';
+@import '../components/TopMenuBar.css';
 @import '../components/Navigation.css';
 
 :root {

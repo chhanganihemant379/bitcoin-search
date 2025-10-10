@@ -1,7 +1,7 @@
 /* Navigation Component */
 .bitcoin-navigation {
   position: fixed;
-  top: 40px; /* Account for the POC bar */
+  top: 68px; /* Account for POC bar (40px) + taskbar (28px) */
   left: 0;
   right: 0;
   z-index: 1000;
@@ -133,7 +133,7 @@
 
 .mobile-menu {
   position: fixed;
-  top: 100px; /* Account for POC bar + nav height */
+  top: 128px; /* Account for POC bar (40px) + taskbar (28px) + nav height (60px) */
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.95);
@@ -188,5 +188,5 @@
 
 /* Page content offset */
 .page-with-nav {
-  padding-top: 100px; /* 40px POC bar + 60px nav */
+  padding-top: 128px; /* 40px POC bar + 28px taskbar + 60px nav */
 }
