@@ -55,6 +55,11 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
       label: 'Bitcoin Search',
       items: [
         { 
+          label: '🏠 Home', 
+          shortcut: '⌘H',
+          action: () => window.location.href = '/'
+        },
+        { 
           label: 'About Bitcoin Search', 
           action: () => alert('Bitcoin Search v1.0\n\nThe Search Engine for Bitcoin\n\n© 2025 The Bitcoin Corporation LTD\nRegistered in England and Wales • Company No. 16735102') 
         },
@@ -174,7 +179,7 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
         { 
           label: 'Advanced Search', 
           shortcut: '⌘⇧F',
-          action: () => console.log('Advanced Search')
+          action: () => window.location.href = '/advanced-search'
         },
         { 
           label: 'Search History', 

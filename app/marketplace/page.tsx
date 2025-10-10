@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { 
   Store, 
   Package, 
@@ -46,10 +46,19 @@ interface MarketplaceStats {
 }
 
 export default function MarketplacePage() {
+  const [mounted, setMounted] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [priceRange, setPriceRange] = useState('all')
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
 
   const categories = [
     { id: 'all', label: 'All Packages' },
@@ -147,220 +156,946 @@ export default function MarketplacePage() {
   })
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-black">
-      <div className="p-8 max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">
-            <span className="blue-gradient">Data</span>
-            <span className="text-white ml-2">Marketplace</span>
+    <div className="marketplace-page">
+      <div className="marketplace-container">
+        {/* Hero Section */}
+        <section className="marketplace-hero">
+          <h1>
+            <span style={{color: '#ffffff'}}>Data</span>{' '}
+            <span style={{color: '#ffffff'}}>Marketplace</span>
           </h1>
-          <p className="text-gray-400">Premium data packages from verified vendors</p>
-        </div>
+          <p className="marketplace-tagline">
+            Economic weight drives data quality and pricing
+          </p>
+          <div className="marketplace-badge">Premium Data Packages</div>
+        </section>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          {marketStats.map((stat) => {
-            const Icon = stat.icon
-            return (
-              <div key={stat.label} className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-gray-400 text-sm">{stat.label}</span>
-                  <Icon className="w-4 h-4 text-blue-500" />
-                </div>
-                <div className="text-2xl font-bold text-white">{stat.value}</div>
-                <div className={`flex items-center gap-1 text-xs ${stat.change >= 0 ? 'text-green-500' : 'text-red-500'}`}>
-                  <TrendingUp className="w-3 h-3" />
-                  <span>+{stat.change}%</span>
-                </div>
+        {/* Market Philosophy Section */}
+        <section className="philosophy-section">
+          <h2>Economic Weight Data Marketplace</h2>
+          <div className="philosophy-content">
+            <p>
+              Traditional data markets rely on subscription models with fixed pricing. 
+              Bitcoin Search Marketplace creates an <strong>economically weighted ecosystem</strong> where 
+              data quality and pricing are determined by actual usage and micropayments.
+            </p>
+            <p>
+              Vendors compete to provide the best data through economic signals - better data 
+              earns more queries and micropayments, creating natural quality incentives.
+            </p>
+            <div className="philosophy-points">
+              <div className="point">
+                <h3>Quality Competition</h3>
+                <p>Data providers compete on accuracy, speed, and coverage</p>
               </div>
-            )
-          })}
-        </div>
-
-        {/* Filters */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8">
-          <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-            <input
-              type="text"
-              placeholder="Search data packages..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
-            />
+              <div className="point">
+                <h3>Economic Pricing</h3>
+                <p>Prices set by market demand and data quality metrics</p>
+              </div>
+              <div className="point">
+                <h3>Micropayment Flow</h3>
+                <p>Pay per query with automatic quality-based routing</p>
+              </div>
+            </div>
           </div>
-          
-          <select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            className="px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500"
-          >
-            {categories.map(cat => (
-              <option key={cat.id} value={cat.id}>{cat.label}</option>
-            ))}
-          </select>
-          
-          <select
-            value={priceRange}
-            onChange={(e) => setPriceRange(e.target.value)}
-            className="px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500"
-          >
-            <option value="all">All Prices</option>
-            <option value="low">≤ 0.01 BSV</option>
-            <option value="medium">0.01 - 0.02 BSV</option>
-            <option value="high">≥ 0.02 BSV</option>
-          </select>
-        </div>
+        </section>
 
-        {/* Package Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {filteredPackages.map((pkg) => (
-            <div 
-              key={pkg.id}
-              className={`bg-gray-900/50 backdrop-blur-sm border ${
-                selectedPackage === pkg.id ? 'border-blue-500' : 'border-gray-800'
-              } rounded-lg p-6 hover:border-blue-800/50 transition-all cursor-pointer`}
-              onClick={() => setSelectedPackage(selectedPackage === pkg.id ? null : pkg.id)}
+        {/* Market Stats Section */}
+        <section className="stats-section">
+          <h2>Marketplace Statistics</h2>
+          <div className="stats-grid">
+            {marketStats.map((stat) => {
+              const Icon = stat.icon
+              return (
+                <div key={stat.label} className="stat">
+                  <h3>{stat.label}</h3>
+                  <p className="stat-value">{stat.value}</p>
+                  <p className="stat-label">
+                    <span className="stat-change">+{stat.change}%</span> this month
+                  </p>
+                </div>
+              )
+            })}
+          </div>
+        </section>
+
+        {/* Search and Filters Section */}
+        <section className="search-section">
+          <h2>Browse Data Packages</h2>
+          <div className="search-controls">
+            <div className="search-input-wrapper">
+              <Search className="search-icon" />
+              <input
+                type="text"
+                placeholder="Search data packages..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="search-input"
+              />
+            </div>
+            
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="filter-select"
             >
-              {/* Package Header */}
-              <div className="mb-4">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg font-bold text-white">{pkg.name}</h3>
-                  <span className="px-2 py-1 bg-blue-900/30 text-blue-400 text-xs rounded">
-                    {pkg.category}
-                  </span>
-                </div>
-                <p className="text-sm text-gray-400 mb-2">{pkg.vendor}</p>
-                <p className="text-sm text-gray-300">{pkg.description}</p>
-              </div>
+              {categories.map(cat => (
+                <option key={cat.id} value={cat.id}>{cat.label}</option>
+              ))}
+            </select>
+            
+            <select
+              value={priceRange}
+              onChange={(e) => setPriceRange(e.target.value)}
+              className="filter-select"
+            >
+              <option value="all">All Prices</option>
+              <option value="low">≤ 0.01 BSV</option>
+              <option value="medium">0.01 - 0.02 BSV</option>
+              <option value="high">≥ 0.02 BSV</option>
+            </select>
+          </div>
+        </section>
 
-              {/* Rating & Stats */}
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-1">
-                    <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                    <span className="text-white font-medium">{pkg.rating}</span>
+        {/* Data Packages Grid */}
+        <section className="packages-section">
+          <div className="packages-grid">
+            {filteredPackages.map((pkg) => (
+              <div 
+                key={pkg.id}
+                className={`package-card ${selectedPackage === pkg.id ? 'selected' : ''}`}
+                onClick={() => setSelectedPackage(selectedPackage === pkg.id ? null : pkg.id)}
+              >
+                <div className="package-header">
+                  <div className="package-title-row">
+                    <h3 className="package-name">{pkg.name}</h3>
+                    <span className="package-category">{pkg.category}</span>
                   </div>
-                  <span className="text-gray-500 text-xs">({pkg.reviews} reviews)</span>
+                  <p className="package-vendor">{pkg.vendor}</p>
+                  <p className="package-description">{pkg.description}</p>
                 </div>
-                <span className="text-gray-400 text-sm">{pkg.queries.toLocaleString()} queries</span>
-              </div>
 
-              {/* Features */}
-              <div className="mb-4">
-                <div className="flex flex-wrap gap-2">
+                <div className="package-rating">
+                  <div className="rating-display">
+                    <Star className="star-icon" />
+                    <span className="rating-value">{pkg.rating}</span>
+                    <span className="review-count">({pkg.reviews} reviews)</span>
+                  </div>
+                  <span className="query-count">{pkg.queries.toLocaleString()} queries</span>
+                </div>
+
+                <div className="package-features">
                   {pkg.features.slice(0, 3).map((feature, index) => (
-                    <span key={index} className="text-xs text-gray-400 bg-gray-800/50 px-2 py-1 rounded">
-                      {feature}
-                    </span>
+                    <span key={index} className="feature-tag">{feature}</span>
                   ))}
                   {pkg.features.length > 3 && (
-                    <span className="text-xs text-blue-400">+{pkg.features.length - 3} more</span>
+                    <span className="more-features">+{pkg.features.length - 3} more</span>
                   )}
                 </div>
-              </div>
 
-              {/* Performance Metrics */}
-              {selectedPackage === pkg.id && (
-                <div className="mb-4 pt-4 border-t border-gray-800">
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">Response Time</span>
-                      <span className="text-white">{pkg.performance.avgResponse}ms</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">Accuracy</span>
-                      <span className="text-green-400">{pkg.performance.accuracy}%</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">Coverage</span>
-                      <span className="text-blue-400">{pkg.performance.coverage}%</span>
+                {selectedPackage === pkg.id && (
+                  <div className="package-performance">
+                    <h4>Performance Metrics</h4>
+                    <div className="performance-grid">
+                      <div className="performance-metric">
+                        <span className="metric-label">Response Time</span>
+                        <span className="metric-value">{pkg.performance.avgResponse}ms</span>
+                      </div>
+                      <div className="performance-metric">
+                        <span className="metric-label">Accuracy</span>
+                        <span className="metric-value accuracy">{pkg.performance.accuracy}%</span>
+                      </div>
+                      <div className="performance-metric">
+                        <span className="metric-label">Coverage</span>
+                        <span className="metric-value coverage">{pkg.performance.coverage}%</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Price & Action */}
-              <div className="flex items-center justify-between pt-4 border-t border-gray-800">
-                <div>
-                  <span className="text-2xl font-bold text-white">{pkg.price}</span>
-                  <span className="text-gray-400 text-sm ml-1">BSV/query</span>
+                <div className="package-footer">
+                  <div className="package-price">
+                    <span className="price-value">{pkg.price}</span>
+                    <span className="price-unit">BSV/query</span>
+                  </div>
+                  <button className="subscribe-btn">Subscribe</button>
                 </div>
-                <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-sm font-medium transition-colors">
-                  Subscribe
-                </button>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </section>
 
-        {/* Create Package CTA */}
-        <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 border border-purple-800/30 rounded-lg p-6 mb-8">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">
-              <Plus className="w-6 h-6 text-white" />
+        {/* Vendor CTA Section */}
+        <section className="vendor-cta-section">
+          <h2>Become a Data Vendor</h2>
+          <div className="vendor-cta-card">
+            <div className="vendor-icon">
+              <Plus />
             </div>
-            <div className="flex-1">
-              <h3 className="text-lg font-bold text-white mb-2">Create Your Data Package</h3>
-              <p className="text-gray-400 text-sm mb-4">
-                Have valuable data? Package it and start earning from every query. 
-                Set your prices, define access levels, and compete in the marketplace.
+            <div className="vendor-content">
+              <h3>Start Selling Your Data</h3>
+              <p>
+                Have valuable data? Package it and start earning from every query through 
+                our economically weighted marketplace. Set your prices, compete on quality, 
+                and earn based on actual usage.
               </p>
-              <div className="flex flex-wrap gap-4 text-sm">
-                <div className="flex items-center gap-2 text-gray-300">
-                  <Check className="w-4 h-4 text-green-500" />
-                  <span>Set your own prices</span>
+              <div className="vendor-benefits">
+                <div className="benefit">
+                  <Check />
+                  <span>Economic weight pricing</span>
                 </div>
-                <div className="flex items-center gap-2 text-gray-300">
-                  <Check className="w-4 h-4 text-green-500" />
+                <div className="benefit">
+                  <Check />
                   <span>Quality-based bonuses</span>
                 </div>
-                <div className="flex items-center gap-2 text-gray-300">
-                  <Check className="w-4 h-4 text-green-500" />
-                  <span>Automatic payments</span>
+                <div className="benefit">
+                  <Check />
+                  <span>Automatic micropayments</span>
+                </div>
+                <div className="benefit">
+                  <Check />
+                  <span>Performance analytics</span>
                 </div>
               </div>
             </div>
-            <button className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg text-white font-medium transition-all">
-              Create Package
-            </button>
+            <button className="vendor-cta-btn">Create Package</button>
           </div>
-        </div>
+        </section>
 
-        {/* Popular Combinations */}
-        <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg p-6">
-          <h3 className="text-lg font-bold text-white mb-4">Popular Package Combinations</h3>
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-black/30 border border-gray-700 rounded-lg p-4">
-              <h4 className="text-white font-medium mb-2">Developer Bundle</h4>
-              <p className="text-gray-400 text-sm mb-3">Technical docs + Code resources</p>
-              <div className="flex items-center justify-between">
-                <span className="text-blue-400 font-medium">0.018 BSV</span>
-                <span className="text-green-400 text-xs">Save 10%</span>
+        {/* Popular Bundles Section */}
+        <section className="bundles-section">
+          <h2>Popular Package Bundles</h2>
+          <div className="bundles-grid">
+            <div className="bundle-card">
+              <h3>Developer Bundle</h3>
+              <p>Technical docs + Code resources + API access</p>
+              <div className="bundle-pricing">
+                <span className="bundle-price">0.018 BSV</span>
+                <span className="bundle-savings">Save 10%</span>
+              </div>
+              <div className="bundle-features">
+                <span>✅ Full documentation</span>
+                <span>✅ Code examples</span>
+                <span>✅ Priority support</span>
               </div>
             </div>
             
-            <div className="bg-black/30 border border-gray-700 rounded-lg p-4">
-              <h4 className="text-white font-medium mb-2">Trader Pack</h4>
-              <p className="text-gray-400 text-sm mb-3">Market data + News sentiment</p>
-              <div className="flex items-center justify-between">
-                <span className="text-blue-400 font-medium">0.023 BSV</span>
-                <span className="text-green-400 text-xs">Save 12%</span>
+            <div className="bundle-card featured">
+              <h3>Trader Pack</h3>
+              <p>Market data + News sentiment + Analytics</p>
+              <div className="bundle-pricing">
+                <span className="bundle-price">0.023 BSV</span>
+                <span className="bundle-savings">Save 12%</span>
+              </div>
+              <div className="bundle-features">
+                <span>✅ Real-time feeds</span>
+                <span>✅ Sentiment analysis</span>
+                <span>✅ Trading signals</span>
               </div>
             </div>
             
-            <div className="bg-black/30 border border-gray-700 rounded-lg p-4">
-              <h4 className="text-white font-medium mb-2">Research Suite</h4>
-              <p className="text-gray-400 text-sm mb-3">All historical + Analytics</p>
-              <div className="flex items-center justify-between">
-                <span className="text-blue-400 font-medium">0.028 BSV</span>
-                <span className="text-green-400 text-xs">Save 15%</span>
+            <div className="bundle-card">
+              <h3>Research Suite</h3>
+              <p>All historical data + Advanced analytics</p>
+              <div className="bundle-pricing">
+                <span className="bundle-price">0.028 BSV</span>
+                <span className="bundle-savings">Save 15%</span>
+              </div>
+              <div className="bundle-features">
+                <span>✅ Complete history</span>
+                <span>✅ ML analytics</span>
+                <span>✅ Custom reports</span>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="cta-section">
+          <h2>Start Using Economic Weight Data</h2>
+          <div className="cta-buttons">
+            <a href="/vendors" className="cta-btn primary">
+              Browse All Vendors
+            </a>
+            <a href="/docs/api" className="cta-btn secondary">
+              API Documentation
+            </a>
+          </div>
+        </section>
       </div>
+
+      <style jsx>{`
+        /* Marketplace Page - Same Style as Token Page - Bitcoin Search Blue Theme */
+        .marketplace-page {
+          background: #0a0a0a;
+          color: #ffffff;
+          min-height: 100vh;
+          font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          padding-top: 96px; /* 40px POC banner + 32px taskbar + 24px spacing */
+          font-weight: 300;
+        }
+
+        .marketplace-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 40px;
+        }
+
+        /* Marketplace Hero - Full Width Black */
+        .marketplace-hero {
+          min-height: 40vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 60px 20px 40px;
+          text-align: center;
+          margin-bottom: 40px;
+          background: #000000;
+          margin-left: calc(-50vw + 50%);
+          margin-right: calc(-50vw + 50%);
+          margin-top: -24px;
+          width: 100vw;
+          position: relative;
+          left: 0;
+          right: 0;
+        }
+
+        .marketplace-badge {
+          display: inline-block;
+          padding: 8px 20px;
+          background: linear-gradient(90deg, #3b82f6, #2563eb);
+          border-radius: 100px;
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-top: 20px;
+          color: #ffffff;
+        }
+
+        .marketplace-hero h1 {
+          font-size: 42px;
+          font-weight: 200;
+          margin: 0 0 16px 0;
+          line-height: 1.1;
+          letter-spacing: -1px;
+          background: linear-gradient(90deg, #60a5fa, #3b82f6);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .marketplace-tagline {
+          font-size: 16px;
+          color: rgba(255, 255, 255, 0.6);
+          margin: 0;
+          line-height: 1.4;
+          max-width: 600px;
+          font-weight: 300;
+        }
+
+        /* Section Styling */
+        section {
+          margin: 60px 0;
+        }
+
+        h2 {
+          font-size: 28px;
+          font-weight: 300;
+          margin-bottom: 32px;
+          color: #ffffff;
+          text-align: center;
+        }
+
+        .philosophy-content p {
+          font-size: 16px;
+          line-height: 1.6;
+          color: rgba(255, 255, 255, 0.8);
+          margin-bottom: 24px;
+        }
+
+        .philosophy-points {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 24px;
+          margin-top: 40px;
+        }
+
+        .point {
+          background: rgba(59, 130, 246, 0.1);
+          border: 1px solid rgba(59, 130, 246, 0.2);
+          border-radius: 12px;
+          padding: 24px;
+          text-align: center;
+        }
+
+        .point h3 {
+          font-size: 18px;
+          font-weight: 500;
+          margin-bottom: 8px;
+          color: #60a5fa;
+        }
+
+        .point p {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.7);
+          margin: 0;
+        }
+
+        .stats-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 24px;
+          margin: 40px 0;
+        }
+
+        .stat {
+          background: rgba(15, 15, 15, 0.8);
+          border: 1px solid rgba(59, 130, 246, 0.2);
+          border-radius: 12px;
+          padding: 32px 24px;
+          text-align: center;
+        }
+
+        .stat h3 {
+          font-size: 16px;
+          font-weight: 500;
+          margin-bottom: 12px;
+          color: rgba(255, 255, 255, 0.7);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        .stat-value {
+          font-size: 32px;
+          font-weight: 600;
+          color: #60a5fa;
+          margin: 0 0 8px 0;
+          line-height: 1;
+        }
+
+        .stat-label {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.6);
+          margin: 0;
+        }
+
+        .stat-change {
+          color: #22c55e;
+          font-weight: 500;
+        }
+
+        /* Search Controls */
+        .search-controls {
+          display: flex;
+          gap: 16px;
+          margin: 32px 0;
+          flex-wrap: wrap;
+        }
+
+        .search-input-wrapper {
+          position: relative;
+          flex: 1;
+          min-width: 300px;
+        }
+
+        .search-icon {
+          position: absolute;
+          left: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 16px;
+          height: 16px;
+          color: rgba(255, 255, 255, 0.4);
+        }
+
+        .search-input {
+          width: 100%;
+          padding: 12px 12px 12px 40px;
+          background: rgba(15, 15, 15, 0.8);
+          border: 1px solid rgba(59, 130, 246, 0.2);
+          border-radius: 8px;
+          color: #ffffff;
+          font-size: 14px;
+          font-family: inherit;
+        }
+
+        .search-input:focus {
+          outline: none;
+          border-color: #60a5fa;
+        }
+
+        .search-input::placeholder {
+          color: rgba(255, 255, 255, 0.4);
+        }
+
+        .filter-select {
+          padding: 12px 16px;
+          background: rgba(15, 15, 15, 0.8);
+          border: 1px solid rgba(59, 130, 246, 0.2);
+          border-radius: 8px;
+          color: #ffffff;
+          font-size: 14px;
+          font-family: inherit;
+          min-width: 150px;
+        }
+
+        .filter-select:focus {
+          outline: none;
+          border-color: #60a5fa;
+        }
+
+        /* Package Cards */
+        .packages-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          gap: 24px;
+          margin: 40px 0;
+        }
+
+        .package-card {
+          background: rgba(15, 15, 15, 0.8);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          padding: 24px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .package-card:hover {
+          border-color: rgba(59, 130, 246, 0.3);
+          transform: translateY(-2px);
+        }
+
+        .package-card.selected {
+          border-color: #60a5fa;
+          background: rgba(59, 130, 246, 0.05);
+        }
+
+        .package-header {
+          margin-bottom: 16px;
+        }
+
+        .package-title-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-bottom: 8px;
+        }
+
+        .package-name {
+          font-size: 18px;
+          font-weight: 500;
+          color: #ffffff;
+          margin: 0;
+        }
+
+        .package-category {
+          background: rgba(59, 130, 246, 0.2);
+          color: #60a5fa;
+          padding: 4px 8px;
+          border-radius: 6px;
+          font-size: 12px;
+          font-weight: 500;
+        }
+
+        .package-vendor {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.6);
+          margin: 0 0 8px 0;
+        }
+
+        .package-description {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.8);
+          line-height: 1.5;
+          margin: 0;
+        }
+
+        .package-rating {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 16px 0;
+        }
+
+        .rating-display {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .star-icon {
+          width: 16px;
+          height: 16px;
+          color: #eab308;
+          fill: currentColor;
+        }
+
+        .rating-value {
+          font-weight: 500;
+          color: #ffffff;
+        }
+
+        .review-count {
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.5);
+        }
+
+        .query-count {
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.6);
+        }
+
+        .package-features {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin: 16px 0;
+        }
+
+        .feature-tag {
+          background: rgba(59, 130, 246, 0.1);
+          color: rgba(255, 255, 255, 0.8);
+          padding: 4px 8px;
+          border-radius: 6px;
+          font-size: 12px;
+        }
+
+        .more-features {
+          color: #60a5fa;
+          font-size: 12px;
+          font-weight: 500;
+        }
+
+        .package-performance {
+          margin: 16px 0;
+          padding: 16px 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .package-performance h4 {
+          font-size: 14px;
+          font-weight: 500;
+          color: #60a5fa;
+          margin: 0 0 12px 0;
+        }
+
+        .performance-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
+        }
+
+        .performance-metric {
+          text-align: center;
+        }
+
+        .metric-label {
+          display: block;
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.6);
+          margin-bottom: 4px;
+        }
+
+        .metric-value {
+          font-size: 14px;
+          font-weight: 500;
+          color: #ffffff;
+        }
+
+        .metric-value.accuracy {
+          color: #22c55e;
+        }
+
+        .metric-value.coverage {
+          color: #60a5fa;
+        }
+
+        .package-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 16px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .package-price {
+          display: flex;
+          align-items: baseline;
+          gap: 4px;
+        }
+
+        .price-value {
+          font-size: 20px;
+          font-weight: 600;
+          color: #60a5fa;
+        }
+
+        .price-unit {
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.6);
+        }
+
+        .subscribe-btn {
+          background: linear-gradient(135deg, #3b82f6, #2563eb);
+          color: #ffffff;
+          border: none;
+          padding: 8px 16px;
+          border-radius: 6px;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .subscribe-btn:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Vendor CTA */
+        .vendor-cta-card {
+          background: rgba(15, 15, 15, 0.8);
+          border: 1px solid rgba(59, 130, 246, 0.2);
+          border-radius: 12px;
+          padding: 32px;
+          display: flex;
+          align-items: flex-start;
+          gap: 24px;
+        }
+
+        .vendor-icon {
+          width: 48px;
+          height: 48px;
+          background: linear-gradient(135deg, #3b82f6, #2563eb);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .vendor-content {
+          flex: 1;
+        }
+
+        .vendor-content h3 {
+          font-size: 20px;
+          font-weight: 500;
+          color: #ffffff;
+          margin: 0 0 8px 0;
+        }
+
+        .vendor-content p {
+          font-size: 15px;
+          line-height: 1.6;
+          color: rgba(255, 255, 255, 0.8);
+          margin: 0 0 20px 0;
+        }
+
+        .vendor-benefits {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+
+        .benefit {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.8);
+        }
+
+        .benefit svg {
+          width: 16px;
+          height: 16px;
+          color: #22c55e;
+        }
+
+        .vendor-cta-btn {
+          background: linear-gradient(135deg, #3b82f6, #2563eb);
+          color: #ffffff;
+          border: none;
+          padding: 14px 24px;
+          border-radius: 8px;
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          flex-shrink: 0;
+        }
+
+        .vendor-cta-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Bundles */
+        .bundles-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 24px;
+          margin: 40px 0;
+        }
+
+        .bundle-card {
+          background: rgba(15, 15, 15, 0.8);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          padding: 24px;
+          text-align: center;
+        }
+
+        .bundle-card.featured {
+          border-color: rgba(59, 130, 246, 0.5);
+          background: rgba(59, 130, 246, 0.1);
+          transform: scale(1.02);
+        }
+
+        .bundle-card h3 {
+          font-size: 18px;
+          font-weight: 500;
+          color: #ffffff;
+          margin: 0 0 8px 0;
+        }
+
+        .bundle-card p {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.7);
+          margin: 0 0 16px 0;
+        }
+
+        .bundle-pricing {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 16px;
+        }
+
+        .bundle-price {
+          font-size: 20px;
+          font-weight: 600;
+          color: #60a5fa;
+        }
+
+        .bundle-savings {
+          background: rgba(34, 197, 94, 0.2);
+          color: #22c55e;
+          padding: 4px 8px;
+          border-radius: 6px;
+          font-size: 12px;
+          font-weight: 500;
+        }
+
+        .bundle-features {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .bundle-features span {
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.8);
+          text-align: left;
+        }
+
+        .cta-section {
+          text-align: center;
+          padding: 60px 0;
+        }
+
+        .cta-buttons {
+          display: flex;
+          gap: 20px;
+          justify-content: center;
+          margin-top: 32px;
+          flex-wrap: wrap;
+        }
+
+        .cta-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 14px 32px;
+          border-radius: 8px;
+          font-size: 16px;
+          font-weight: 500;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        .cta-btn.primary {
+          background: linear-gradient(135deg, #3b82f6, #2563eb);
+          color: #ffffff;
+        }
+
+        .cta-btn.primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-btn.secondary {
+          background: transparent;
+          color: #60a5fa;
+          border: 1px solid rgba(59, 130, 246, 0.5);
+        }
+
+        .cta-btn.secondary:hover {
+          background: rgba(59, 130, 246, 0.1);
+          border-color: #60a5fa;
+        }
+
+        @media (max-width: 768px) {
+          .marketplace-container {
+            padding: 0 20px;
+          }
+          
+          .marketplace-hero h1 {
+            font-size: 32px;
+          }
+          
+          .philosophy-points {
+            grid-template-columns: 1fr;
+          }
+          
+          .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          
+          .search-controls {
+            flex-direction: column;
+          }
+          
+          .search-input-wrapper {
+            min-width: auto;
+          }
+          
+          .packages-grid {
+            grid-template-columns: 1fr;
+          }
+          
+          .vendor-cta-card {
+            flex-direction: column;
+            text-align: center;
+          }
+          
+          .vendor-benefits {
+            grid-template-columns: 1fr;
+          }
+          
+          .bundles-grid {
+            grid-template-columns: 1fr;
+          }
+          
+          .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+          }
+        }
+      `}</style>
     </div>
   )
 }
