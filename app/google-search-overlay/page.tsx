@@ -298,7 +298,7 @@ export default function GoogleSearchOverlay() {
           color: #ffffff;
           min-height: 100vh;
           font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-          padding-top: 96px;
+          padding-top: 128px; /* 40px POC + 28px taskbar + 60px nav */
           font-weight: 300;
         }
 
