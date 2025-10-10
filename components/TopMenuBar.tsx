@@ -158,16 +158,24 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
       label: 'Search',
       items: [
         { 
-          label: 'New Search', 
+          label: '🔍 Search Home', 
           shortcut: '⌘N',
           action: () => window.location.href = '/'
         },
+        { 
+          label: '📈 Equity Search', 
+          action: () => window.location.href = '/equity-search'
+        },
+        { 
+          label: '🔗 Google Search Overlay', 
+          action: () => window.location.href = '/google-search-overlay'
+        },
+        { divider: true },
         { 
           label: 'Advanced Search', 
           shortcut: '⌘⇧F',
           action: () => console.log('Advanced Search')
         },
-        { divider: true },
         { 
           label: 'Search History', 
           action: () => console.log('Search History')
@@ -190,6 +198,15 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
     {
       label: 'Tools',
       items: [
+        {
+          label: '🏪 Marketplace',
+          action: () => window.location.href = '/marketplace'
+        },
+        {
+          label: '🏢 Vendors',
+          action: () => window.location.href = '/vendors'
+        },
+        { divider: true },
         {
           label: 'Search Analytics',
           icon: '📊',
@@ -225,6 +242,11 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
     {
       label: 'Blockchain',
       items: [
+        { 
+          label: '🪙 Token', 
+          action: () => window.location.href = '/token'
+        },
+        { divider: true },
         { 
           label: 'Exchange', 
           action: () => window.location.href = '/exchange'
@@ -392,6 +414,10 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
         },
         { divider: true },
         { 
+          label: '📚 Documentation', 
+          action: () => window.location.href = '/docs'
+        },
+        { 
           label: 'Search Tutorial', 
           action: () => window.location.href = '/docs/tutorial'
         },
@@ -404,10 +430,6 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
           action: () => window.location.href = '/docs/api'
         },
         { divider: true },
-        { 
-          label: 'Documentation', 
-          action: () => window.location.href = '/docs'
-        },
         { 
           label: 'GitHub Repository', 
           href: 'https://github.com/bitcoin-apps-suite/bitcoin-search',
@@ -608,6 +630,7 @@ export default function TopMenuBar({ onOpenApp }: TopMenuBarProps) {
             )}
           </div>
         ))}
+        
       </div>
 
       {/* Right side - Status */}

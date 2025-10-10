@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 
-export default function TokenPage() {
+export default function ExchangeMarketsPage() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -14,289 +14,317 @@ export default function TokenPage() {
   }
 
   return (
-    <div className="token-page">
-      <div className="token-container">
+    <div className="markets-page">
+      <div className="markets-container">
         {/* Hero Section */}
-        <section className="token-hero">
+        <section className="markets-hero">
           <h1>
-            <span style={{color: '#ffffff'}}>The</span> Bitcoin Search{' '}
-            <span style={{color: '#ffffff'}}>Token</span>
+            <span style={{color: '#ffffff'}}>Bitcoin Search</span>{' '}
+            <span style={{color: '#ffffff'}}>Exchange Markets</span>
           </h1>
-          <p className="token-tagline">
-            Economic weight meets decentralized search
+          <p className="markets-tagline">
+            Economic weight drives market data quality
           </p>
-          <div className="token-badge">$bSearch</div>
+          <div className="markets-badge">Live Trading Data</div>
         </section>
 
-        {/* Philosophy Section */}
+        {/* Market Philosophy Section */}
         <section className="philosophy-section">
-          <h2>Our Economic Search Philosophy</h2>
+          <h2>Economic Weight Market Data</h2>
           <div className="philosophy-content">
             <p>
-              Bitcoin Search is an <strong>economically weighted search engine</strong> where content 
-              value is determined by actual micropayments rather than arbitrary algorithms. 
-              Our approach creates a true marketplace for information.
+              Traditional market data feeds rely on centralized providers with opaque pricing. 
+              Bitcoin Search Exchange creates an <strong>economically weighted marketplace</strong> where 
+              market data quality and accuracy are determined by actual micropayments from traders.
             </p>
             <p>
-              The $bSearch token represents our vision of search powered by economic signals - 
-              where users pay for quality data and vendors compete to provide the best results.
+              Our exchange aggregates data from multiple sources, weights it by economic signals, 
+              and provides the most accurate real-time pricing through competitive vendor participation.
             </p>
             <div className="philosophy-points">
               <div className="point">
-                <h3>Economic Weight</h3>
-                <p>Content ranked by payment value, not backlinks</p>
+                <h3>Economic Weighting</h3>
+                <p>Market data ranked by payment volume, not arbitrary feeds</p>
               </div>
               <div className="point">
                 <h3>Vendor Competition</h3>
-                <p>Data providers compete on quality and price</p>
+                <p>Data providers compete on accuracy and speed</p>
               </div>
               <div className="point">
-                <h3>True Value</h3>
-                <p>Real economic signals determine content worth</p>
+                <h3>True Price Discovery</h3>
+                <p>Real economic signals determine data quality</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Token Model Section */}
-        <section className="token-model-section">
-          <h2>The $bSearch Token Model</h2>
+        {/* Live Markets Section */}
+        <section className="live-markets-section">
+          <h2>Live Market Data</h2>
+          <div className="markets-grid">
+            <div className="market-card featured">
+              <h3>BSV/USD</h3>
+              <div className="price">$47.23</div>
+              <div className="change positive">+2.43%</div>
+              <div className="volume">Volume: 125,450 BSV</div>
+              <div className="data-quality">Quality Score: 98.5%</div>
+            </div>
+            <div className="market-card">
+              <h3>BTC/USD</h3>
+              <div className="price">$43,280</div>
+              <div className="change negative">-0.82%</div>
+              <div className="volume">Volume: 2,340 BTC</div>
+              <div className="data-quality">Quality Score: 95.2%</div>
+            </div>
+            <div className="market-card">
+              <h3>$bSEARCH/BSV</h3>
+              <div className="price">0.00234 BSV</div>
+              <div className="change positive">+12.67%</div>
+              <div className="volume">Volume: 450,000 $bSEARCH</div>
+              <div className="data-quality">Quality Score: 99.1%</div>
+            </div>
+          </div>
+        </section>
+
+        {/* Data Sources Section */}
+        <section className="data-sources-section">
+          <h2>Market Data Sources</h2>
           <div className="model-card">
-            <h3>How It Works</h3>
+            <h3>Economically Weighted Aggregation</h3>
             <ul>
               <li>
-                <strong>Search Revenue:</strong> All search payments and micropayments flow 
-                into the $bSearch token economy, capitalizing the token value
+                <strong>Primary Sources:</strong> Real-time feeds from major exchanges 
+                weighted by trading volume and data accuracy payments
               </li>
               <li>
-                <strong>Vendor Staking:</strong> Data vendors stake $bSearch tokens to 
-                participate in the marketplace and earn from quality data provision
+                <strong>Vendor Network:</strong> Independent data providers stake $bSearch tokens 
+                to participate and earn from high-quality market data
               </li>
               <li>
-                <strong>Quality Rewards:</strong> High-performing vendors receive bonus 
-                $bSearch tokens based on user satisfaction and response times
+                <strong>Quality Metrics:</strong> Data accuracy tracked through economic signals - 
+                providers with better data receive more micropayments
               </li>
               <li>
-                <strong>Transparent Economics:</strong> All payments and rewards are 
-                recorded on-chain via BSV micropayments
+                <strong>Latency Rewards:</strong> Fastest, most accurate data providers 
+                earn bonus payments from the economic weight algorithm
               </li>
             </ul>
           </div>
 
           <div className="model-card warning">
-            <h3>Economic Model Notes</h3>
+            <h3>Data Quality Guarantees</h3>
             <ul>
               <li>
-                <strong>Market Driven:</strong> Token value fluctuates based on search 
-                volume, data quality, and market demand
+                <strong>Economic Validation:</strong> All market data validated through 
+                micropayment flows and vendor competition
               </li>
               <li>
-                <strong>Vendor Economy:</strong> Revenue flows between users, vendors, 
-                and token holders based on actual utility
+                <strong>Real-time Accuracy:</strong> Data quality scores updated in real-time 
+                based on trader payments and satisfaction
               </li>
               <li>
-                <strong>Not Investment Advice:</strong> $bSearch tokens are utility tokens 
-                for participating in the search economy, not investment instruments
+                <strong>Vendor Accountability:</strong> Poor performing data sources lose 
+                staking rewards and market access
               </li>
               <li>
-                <strong>Economic Signals:</strong> Token rewards align with providing 
-                genuine value to search users
+                <strong>Transparent Pricing:</strong> All data costs and vendor performance 
+                metrics publicly available on-chain
               </li>
             </ul>
           </div>
         </section>
 
-        {/* Business Model Section */}
+        {/* Trading Integration Section */}
         <section className="business-section">
-          <h2>The Search Economy</h2>
+          <h2>Trading & API Integration</h2>
           <div className="business-content">
             <p className="intro">
-              Our vision is to create the first truly economically weighted search engine 
-              where content value is determined by real market signals.
+              Access professionally-grade market data through our economically weighted 
+              exchange API, where data quality is guaranteed by real economic signals.
             </p>
 
             <div className="business-model">
-              <h3>Revenue Streams</h3>
+              <h3>API Pricing</h3>
               <div className="revenue-streams">
                 <div className="stream">
-                  <h4>Basic Search</h4>
-                  <p>General queries, standard results</p>
-                  <p className="price">0.001 BSV</p>
+                  <h4>Basic Market Data</h4>
+                  <p>Real-time prices, basic charts</p>
+                  <p className="price">0.0001 BSV/query</p>
                 </div>
                 <div className="stream featured">
-                  <h4>Premium Search</h4>
-                  <p>High-quality data, fast results</p>
-                  <p className="price">0.01 BSV</p>
+                  <h4>Professional Trading</h4>
+                  <p>Level 2 data, order book, analytics</p>
+                  <p className="price">0.001 BSV/query</p>
                 </div>
                 <div className="stream">
                   <h4>Enterprise API</h4>
-                  <p>Bulk queries, custom integration</p>
-                  <p className="price">Custom</p>
+                  <p>Unlimited access, custom endpoints</p>
+                  <p className="price">Custom pricing</p>
                 </div>
               </div>
               
-              <h3 style={{marginTop: '40px'}}>Data Marketplace</h3>
+              <h3 style={{marginTop: '40px'}}>Revenue Distribution</h3>
               <div className="revenue-streams">
                 <div className="stream">
-                  <h4>Vendor Fees</h4>
-                  <p>Marketplace participation fee</p>
-                  <p className="price">2.5% of earnings</p>
+                  <h4>Data Vendors</h4>
+                  <p>Providers earn from quality data</p>
+                  <p className="price">70% of payments</p>
                 </div>
                 <div className="stream featured">
-                  <h4>Quality Bonuses</h4>
-                  <p>Rewards for high-quality data</p>
-                  <p className="price">Up to 50% extra</p>
+                  <h4>Platform Fee</h4>
+                  <p>Exchange operation and development</p>
+                  <p className="price">20% of payments</p>
                 </div>
                 <div className="stream">
-                  <h4>Staking Rewards</h4>
-                  <p>$bSearch staking APY</p>
-                  <p className="price">15-25% APY</p>
+                  <h4>$bSearch Buyback</h4>
+                  <p>Token value support mechanism</p>
+                  <p className="price">10% of payments</p>
                 </div>
               </div>
             </div>
 
             <div className="value-flow">
-              <h3>Economic Weight Flow</h3>
+              <h3>Economic Weight Trading Flow</h3>
               <div className="flow-diagram">
                 <div className="flow-item">
-                  <span>User pays for search</span>
+                  <span>Trader requests market data</span>
                   <span className="arrow">→</span>
                 </div>
                 <div className="flow-item">
-                  <span>Payment distributed to vendors</span>
+                  <span>Micropayment to data vendors</span>
                   <span className="arrow">→</span>
                 </div>
                 <div className="flow-item">
-                  <span>Platform fee capitalizes $bSearch</span>
+                  <span>Quality score updates ranking</span>
                   <span className="arrow">→</span>
                 </div>
                 <div className="flow-item">
-                  <span>Economic weight determines ranking</span>
+                  <span>Best vendors get more queries</span>
                 </div>
               </div>
               <p style={{textAlign: 'center', marginTop: '20px', fontSize: '14px', color: 'rgba(255, 255, 255, 0.6)'}}>
-                The Bitcoin Search marketplace creates real economic signals where content value 
-                is measured by actual payments, not arbitrary algorithms.
+                Market data quality improves through economic competition, ensuring traders 
+                get the most accurate pricing available.
               </p>
             </div>
           </div>
         </section>
 
-        {/* How to Earn Section */}
+        {/* Trading Features Section */}
         <section className="contribute-section">
-          <h2>How to Earn $bSearch Tokens</h2>
+          <h2>Trading Features</h2>
           <div className="contribute-steps">
             <div className="step">
               <div className="step-number">1</div>
-              <h3>Become a Vendor</h3>
-              <p>Stake $bSearch tokens and provide high-quality search data</p>
+              <h3>Real-time Data</h3>
+              <p>Sub-second market updates with economic weight validation</p>
             </div>
             <div className="step">
               <div className="step-number">2</div>
-              <h3>Serve Quality Data</h3>
-              <p>Respond to search queries with accurate, fast results</p>
+              <h3>Advanced Analytics</h3>
+              <p>Economic weight patterns, vendor performance metrics</p>
             </div>
             <div className="step">
               <div className="step-number">3</div>
-              <h3>Earn from Searches</h3>
-              <p>Receive micropayments for every query you successfully answer</p>
+              <h3>API Trading</h3>
+              <p>Programmatic access with micropayment integration</p>
             </div>
             <div className="step">
               <div className="step-number">4</div>
-              <h3>Quality Bonuses</h3>
-              <p>High-rated vendors earn bonus $bSearch tokens</p>
+              <h3>Quality Guarantees</h3>
+              <p>Data accuracy backed by vendor staking and economic signals</p>
             </div>
           </div>
 
           <div className="contribution-examples">
-            <h3>What Earns Rewards</h3>
+            <h3>Data Quality Features</h3>
             <ul>
-              <li>✅ Fast response times (&lt;100ms)</li>
-              <li>✅ High accuracy scores (&gt;95%)</li>
-              <li>✅ Comprehensive data coverage</li>
-              <li>✅ Unique data sources</li>
-              <li>✅ Consistent availability</li>
-              <li>✅ User satisfaction ratings</li>
+              <li>✅ Real-time quality scoring</li>
+              <li>✅ Vendor performance tracking</li>
+              <li>✅ Economic weight validation</li>
+              <li>✅ Latency under 50ms</li>
+              <li>✅ 99.9% uptime guarantee</li>
+              <li>✅ Multi-source aggregation</li>
             </ul>
           </div>
         </section>
 
-        {/* Token Stats Section */}
+        {/* Market Stats Section */}
         <section className="stats-section">
-          <h2>Token Statistics</h2>
+          <h2>Exchange Statistics</h2>
           <div className="stats-grid">
             <div className="stat">
-              <h3>Total Supply</h3>
-              <p className="stat-value">1,000,000,000</p>
-              <p className="stat-label">$bSearch tokens</p>
-            </div>
-            <div className="stat">
-              <h3>Daily Searches</h3>
-              <p className="stat-value">125,456</p>
-              <p className="stat-label">Micropayments generated</p>
+              <h3>Daily Volume</h3>
+              <p className="stat-value">$2.4M</p>
+              <p className="stat-label">Across all pairs</p>
             </div>
             <div className="stat">
               <h3>Data Vendors</h3>
-              <p className="stat-value">45</p>
+              <p className="stat-value">23</p>
               <p className="stat-label">Active providers</p>
             </div>
             <div className="stat">
-              <h3>Economic Weight</h3>
-              <p className="stat-value">125.7K BSV</p>
-              <p className="stat-label">Total value processed</p>
+              <h3>API Queries</h3>
+              <p className="stat-value">340K</p>
+              <p className="stat-label">Daily requests</p>
+            </div>
+            <div className="stat">
+              <h3>Avg Latency</h3>
+              <p className="stat-value">28ms</p>
+              <p className="stat-label">Response time</p>
             </div>
           </div>
         </section>
 
-        {/* Economics Section */}
+        {/* Economic Model Section */}
         <section className="legal-section">
-          <h2>Economic Model & Utility</h2>
+          <h2>Economic Model & Data Quality</h2>
           <div className="legal-content">
             <p>
-              <strong>Utility Token:</strong> The $bSearch token is a utility token that enables 
-              participation in the economically weighted search marketplace. Token holders can 
-              stake to become data vendors or use tokens to access premium search features.
+              <strong>Economic Weight Algorithm:</strong> Market data quality is determined by 
+              actual micropayments from traders rather than traditional metrics. Vendors compete 
+              on accuracy, speed, and reliability to earn more query payments.
             </p>
             <p>
-              <strong>Economic Weight Algorithm:</strong> Content ranking is determined by the 
-              total economic weight (micropayments received) rather than traditional metrics. 
-              This creates genuine market-driven content valuation.
+              <strong>Data Vendor Staking:</strong> All market data providers must stake $bSearch 
+              tokens to participate. Poor performance results in staking penalties, ensuring 
+              only high-quality data reaches traders.
             </p>
             <p>
-              <strong>Vendor Marketplace:</strong> Data vendors stake $bSearch tokens to participate 
-              in the marketplace. Higher stakes and better performance lead to more search queries 
-              and higher earnings.
+              <strong>Transparent Economics:</strong> All vendor payments, quality scores, and 
+              performance metrics are recorded on-chain via BSV micropayments, creating 
+              unprecedented transparency in market data provision.
             </p>
             <p>
-              By participating in the search economy, you acknowledge that token values fluctuate 
-              based on market demand, search volume, and economic activity within the platform.
+              Market data accuracy and vendor performance can be independently verified through 
+              on-chain payment records and economic weight calculations.
             </p>
           </div>
         </section>
 
         {/* CTA Section */}
         <section className="cta-section">
-          <h2>Ready to Join the Search Economy?</h2>
+          <h2>Start Trading with Economic Weight</h2>
           <div className="cta-buttons">
             <a 
-              href="/vendors" 
+              href="/exchange/trading" 
               className="cta-btn primary"
             >
-              Become a Data Vendor
+              Access Trading Platform
             </a>
             <a 
-              href="/docs" 
+              href="/docs/api" 
               className="cta-btn secondary"
             >
-              Read Integration Docs
+              View API Documentation
             </a>
           </div>
         </section>
       </div>
 
       <style jsx>{`
-        /* Token Page - Compact Refined Style - Bitcoin Search Blue Theme */
-        .token-page {
+        /* Markets Page - Same Style as Token Page - Bitcoin Search Blue Theme */
+        .markets-page {
           background: #0a0a0a;
           color: #ffffff;
           min-height: 100vh;
@@ -305,14 +333,14 @@ export default function TokenPage() {
           font-weight: 300;
         }
 
-        .token-container {
+        .markets-container {
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 40px;
         }
 
-        /* Token Hero - Full Width Black */
-        .token-hero {
+        /* Markets Hero - Full Width Black */
+        .markets-hero {
           min-height: 40vh;
           display: flex;
           flex-direction: column;
@@ -331,7 +359,7 @@ export default function TokenPage() {
           right: 0;
         }
 
-        .token-badge {
+        .markets-badge {
           display: inline-block;
           padding: 8px 20px;
           background: linear-gradient(90deg, #3b82f6, #2563eb);
@@ -344,7 +372,7 @@ export default function TokenPage() {
           color: #ffffff;
         }
 
-        .token-hero h1 {
+        .markets-hero h1 {
           font-size: 42px;
           font-weight: 200;
           margin: 0 0 16px 0;
@@ -356,7 +384,7 @@ export default function TokenPage() {
           background-clip: text;
         }
 
-        .token-tagline {
+        .markets-tagline {
           font-size: 16px;
           color: rgba(255, 255, 255, 0.6);
           margin: 0;
@@ -411,6 +439,68 @@ export default function TokenPage() {
           font-size: 14px;
           color: rgba(255, 255, 255, 0.7);
           margin: 0;
+        }
+
+        /* Live Markets Grid */
+        .markets-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 24px;
+          margin: 40px 0;
+        }
+
+        .market-card {
+          background: rgba(15, 15, 15, 0.8);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          padding: 24px;
+          text-align: center;
+        }
+
+        .market-card.featured {
+          border-color: rgba(59, 130, 246, 0.5);
+          background: rgba(59, 130, 246, 0.1);
+          transform: scale(1.02);
+        }
+
+        .market-card h3 {
+          font-size: 20px;
+          font-weight: 500;
+          margin-bottom: 16px;
+          color: #ffffff;
+        }
+
+        .market-card .price {
+          font-size: 28px;
+          font-weight: 600;
+          color: #60a5fa;
+          margin-bottom: 8px;
+        }
+
+        .market-card .change {
+          font-size: 16px;
+          font-weight: 500;
+          margin-bottom: 12px;
+        }
+
+        .market-card .change.positive {
+          color: #22c55e;
+        }
+
+        .market-card .change.negative {
+          color: #ef4444;
+        }
+
+        .market-card .volume {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.7);
+          margin-bottom: 8px;
+        }
+
+        .market-card .data-quality {
+          font-size: 12px;
+          color: #60a5fa;
+          font-weight: 500;
         }
 
         .model-card {
@@ -703,15 +793,19 @@ export default function TokenPage() {
         }
 
         @media (max-width: 768px) {
-          .token-container {
+          .markets-container {
             padding: 0 20px;
           }
           
-          .token-hero h1 {
+          .markets-hero h1 {
             font-size: 32px;
           }
           
           .philosophy-points {
+            grid-template-columns: 1fr;
+          }
+          
+          .markets-grid {
             grid-template-columns: 1fr;
           }
           

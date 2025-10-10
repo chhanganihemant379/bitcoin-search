@@ -6,14 +6,13 @@ import TopMenuBar from './TopMenuBar'
 import DevSidebar from './DevSidebar'
 import Dock from './Dock'
 import ProofOfConceptBar from './ProofOfConceptBar'
-import Navigation from './Navigation'
 
 export default function LayoutClient({ children }: { children: React.ReactNode }) {
   const [showDevSidebar, setShowDevSidebar] = useState(true)
   const [showDock, setShowDock] = useState(true)
 
   return (
-    <div className="min-h-screen flex flex-col relative" style={{ paddingTop: '68px' }}>
+    <div className="min-h-screen flex flex-col relative" style={{ paddingTop: '36px' }}>
       {/* Proof of Concept Bar - Always at the very top */}
       <ProofOfConceptBar />
 
@@ -21,9 +20,6 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
       <TopMenuBar 
         onOpenApp={(app: string) => console.log('App clicked:', app)}
       />
-
-      {/* Bitcoin Writer Style Navigation */}
-      <Navigation />
 
       {/* Main Content Area */}
       <div className="flex flex-1 relative">
@@ -33,7 +29,7 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
         )}
 
         {/* Main Content */}
-        <main className="flex-grow relative page-with-nav">
+        <main className="flex-grow relative">
           <BitcoinOSIntegration />
           {children}
         </main>
